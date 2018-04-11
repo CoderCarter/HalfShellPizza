@@ -17,9 +17,10 @@ function getReceipt() {
 				sizeTotal = 14;
 		} else if (selectedSize === "Extra Large Pizza") {	
 				sizeTotal = 16;
+		}
 		runningTotal = sizeTotal;
-		getMeat(runningTotal,text1);
-};	
+		getMeat(runningTotal, text1);
+}	
 
 function getMeat(runningTotal, text1) {
 		var meatTotal = 0;
@@ -39,27 +40,27 @@ function getMeat(runningTotal, text1) {
 		}
 		runningTotal = (runningTotal + meatTotal);
 		getVeggie(runningTotal,text1);
-};
+}
 
 function getVeggie(runningTotal, text1) {
 		var veggieTotal = 0;
 		var selectedVeggie = [];
 		var veggieArray = document.getElementsByClassName("veggies");
 		for (var j = 0; j < veggieArray.length; j++) {
-				if veggieArray[j].checked) {
+				if (veggieArray[j].checked) {
 						selectedVeggie.push(veggieArray[j].value);
 						text1 = text1+veggieArray[j].value+"<br>";
 				}
 		}
-		var veggieCount = selectedMeat.length;
+		var veggieCount = selectedVeggie.length;
 		if (veggieCount > 1) {
-				meatTotal = (veggieCount - 1);
+				veggieTotal = (veggieCount - 1);
 		} else {
-				meatTotal = 0;
+				veggieTotal = 0;
 		}
 		runningTotal = (runningTotal + veggieTotal);
 		getCheese(runningTotal,text1);
-};
+}
 
 function getCheese(runningTotal,text1) {
 	var cheeseTotal = 0;
@@ -75,7 +76,7 @@ function getCheese(runningTotal,text1) {
 		}
 		runningTotal = (runningTotal + cheeseTotal);
 		getSauce(runningTotal,text1);
-};
+}
 
 function getSauce(runningTotal,text1) {
 	var sauceArray = document.getElementsByClassName("sauce");
@@ -86,8 +87,8 @@ function getSauce(runningTotal,text1) {
 		}
 	}
 	text1 = text1 + 0 + "<br>";
-	getCrust(runningTotal,text1)
-};
+	getCrust(runningTotal,text1);
+}
 		
 function getCrust(runningTotal,text1) {
 	var crustTotal = 0;
@@ -107,8 +108,8 @@ function getCrust(runningTotal,text1) {
 	document.getElementById("cart").style.opacity=1;
 	document.getElementById("showText1").innerHTML=text1;
 	document.getElementById("totalPrice2").innerHTML = "</h3>$"+runningTotal+".00"+"</h3>";
-};
+}
 function clearAll() {
 	document.getElementById("allMenu").reset();
 	document.getElementById("cart").style.opacity=0;
-};
+}
